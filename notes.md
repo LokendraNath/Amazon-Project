@@ -1,9 +1,10 @@
-Main Idea Of Javascript
-  1. Save the Data  (Model)
-  2. Generate the HTML (View)
-  3. Make it interactive (Controller)
+MVC->  Makes Sure the page always matches the data
 
-MVC => Makes Sure the page always matches the data
+  Main Idea Of Javascript
+    1. Save the Data  (Model)
+    2. Generate the HTML (View)
+    3. Make it interactive (Controller)
+
 
   1. Update The data
   2. Regenerate All the HTML 
@@ -20,3 +21,9 @@ MVC => Makes Sure the page always matches the data
           2. intaract with the view it will run the controller ('eg. query selector')
           3. controller update the Model (update the data eg. updateDeliveryOptions(productId, deliveryOptionId) 192)
           4 .update the Model for regenerate the view (.renderOrderSummary(); 193)
+
+OOP -> Object-Oriented Programming (OOP)
+    - Function inside of object Called Method
+    - Organize our code into objects
+    - ties to represent the real world
+    - Use PascalCase "Cart()" for things that generate objects
