@@ -14,7 +14,6 @@ import {
   calculateDeliveryDate,
 } from "../../data/deliveryOption.js";
 
-import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
 import { renderCheckoutHeader } from "./checkoutHeader.js";
 
@@ -154,10 +153,10 @@ export function renderOrderSummary() {
       if (updateNumber >= 0 && updateNumber < 100) {
         updateQuantity(productId, updateNumber);
         document.querySelector(".quantity-label").innerHTML = updateNumber;
-        calculateCartQty()
+        calculateCartQty();
       }
-      renderCheckoutHeader()
-      renderPaymentSummary()
+      renderCheckoutHeader();
+      renderPaymentSummary();
     });
   });
 
