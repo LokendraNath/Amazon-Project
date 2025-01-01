@@ -35,15 +35,24 @@ OOP -> Object-Oriented Programming (OOP)
     - This is design for generating Objects (Object Generator)
     - Use PascalCase "Cart()" for things that generate objects
 
-    Benefits Of Classes -> 
-        1 -> A class looks like the object that it generates
-        2 -> cleaner than using a function
-        3 -> Classes have extra features for Object-Oriented 
-              Programming
-                1st Feature -> Constructor (lets us run setup code
-                               after creating a object)
-                              - ye automatinc Constructor ko run kar deta 
-                                hai jab ham class ko banate hai to
-                              - iska yhi name rahega 
-                              - ye return nhi karega kuch bhi
-        4 -> better way to generate objects in object-oriented programming
+      Benefits Of Classes -> 
+          1 -> A class looks like the object that it generates
+          2 -> cleaner than using a function
+          3 -> Classes have extra features for Object-Oriented 
+                Programming
+
+                  1 -> Constructor 
+                                - (lets us run setup code after creating a
+                                 object)
+                                - ye automatinc Constructor ko run kar deta 
+                                  hai jab ham class ko banate hai to
+                                - iska yhi name rahega 
+                                - ye return nhi karega kuch bhi
+                  2 -> Private Property
+                                - it can only be accessed inside the class
+                                - #localStoreKey -> this is call private 
+                                  proeperty
+                                - Class me private property ka matlab hai wo property (variable) jo sirf class ke andar hi access ki ja sakti hai. Iska istemal tab kiya jata hai jab hume data ko bahar se direct modify ya access karne se rokna ho.
+                  3 ->  Private Method
+
+          4 -> better way to generate objects in object-oriented programming

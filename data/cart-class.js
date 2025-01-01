@@ -1,14 +1,14 @@
 class Cart {
   cartItems; // cart item ka list
-  localStoreKey; // data save karne ke liye
+  #localStoreKey; // data save karne ke liye (Private property)
 
   constructor(localStoreKey) {
-    this.localStoreKey = localStoreKey;
-    this.loadFromStorage();
+    this.#localStoreKey = localStoreKey;
+    this.#loadFromStorage();
   }
 
-  loadFromStorage() {
-    this.cartItems = JSON.parse(localStorage.getItem(this.localStoreKey));
+  #loadFromStorage() {
+    this.cartItems = JSON.parse(localStorage.getItem(this.#localStoreKey));
 
     if (!this.cartItems) {
       this.cartItems = [
@@ -26,7 +26,7 @@ class Cart {
     }
   }
   saveToStorage() {
-    localStorage.setItem(this.localStoreKey, JSON.stringify(this.cartItems));
+    localStorage.setItem(this.#localStoreKey, JSON.stringify(this.cartItems));
   }
   addToCart(productId) {
     let matchingItem;
@@ -72,6 +72,3 @@ const businessCart = new Cart("cart2-oopBusiness");
 
 console.log(cart);
 console.log(businessCart);
-
-// Check kar rha hai ki ye instance is class ka hai ki nhi
-console.log(businessCart instanceof Cart);
