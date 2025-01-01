@@ -23,7 +23,27 @@ MVC->  Makes Sure the page always matches the data
           4 .update the Model for regenerate the view (.renderOrderSummary(); 193)
 
 OOP -> Object-Oriented Programming (OOP)
+
     - Function inside of object Called Method
     - Organize our code into objects
     - ties to represent the real world
     - Use PascalCase "Cart()" for things that generate objects
+    - and Class help us generate these objects
+
+  Class -> Class ek template hoti hai, jisme hum objects banane ke 
+           liye rules likhte hain.
+    - This is design for generating Objects (Object Generator)
+    - Use PascalCase "Cart()" for things that generate objects
+
+    Benefits Of Classes -> 
+        1 -> A class looks like the object that it generates
+        2 -> cleaner than using a function
+        3 -> Classes have extra features for Object-Oriented 
+              Programming
+                1st Feature -> Constructor (lets us run setup code
+                               after creating a object)
+                              - ye automatinc Constructor ko run kar deta 
+                                hai jab ham class ko banate hai to
+                              - iska yhi name rahega 
+                              - ye return nhi karega kuch bhi
+        4 -> better way to generate objects in object-oriented programming
