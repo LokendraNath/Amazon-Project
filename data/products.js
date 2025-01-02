@@ -33,19 +33,30 @@ class Product {
   getPrice() {
     return `₹${formatPrice(this.price)}`;
   }
+
+  extraInfoHTML() {
+    return "";
+  }
 }
 
-const product1 = new Product({
-  id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-  image: "images/products/athletic-cotton-socks-6-pairs.jpg",
-  name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-  rating: {
-    stars: 4.5,
-    count: 87,
-  },
-  price: 1099,
-  keywords: ["socks", "sports", "apparel"],
-});
+// Inheritance Class
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails); // this will call the parent constructor !!!
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML() {
+    //super.extraInfoHTML(); //This will call parent method !!!
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">
+      Size Chart
+      </a>
+    `;
+  }
+}
 
 export const products = [
   {
@@ -205,6 +216,8 @@ export const products = [
     },
     price: 1699,
     keywords: ["shorts", "apparel", "mens"],
+    type: "clothing",
+    sizeChartLink: "images/clothing-size-chart.png",
   },
   {
     id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
@@ -251,5 +264,8 @@ export const products = [
     keywords: ["jewelry", "accessories", "womens"],
   },
 ].map((productDetails) => {
+  if (productDetails.type === "clothing") {
+    return new Clothing(productDetails);
+  }
   return new Product(productDetails);
 });

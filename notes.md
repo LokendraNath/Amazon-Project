@@ -1,58 +1,106 @@
-MVC->  Makes Sure the page always matches the data
+### MVC (मॉडल - व्यू - कंट्रोलर)
 
-  Main Idea Of Javascript
-    1. Save the Data  (Model)
-    2. Generate the HTML (View)
-    3. Make it interactive (Controller)
+#### **MVC क्या करता है?**
+यह सुनिश्चित करता है कि पेज हमेशा डेटा के अनुरूप रहे।  
 
+---
 
-  1. Update The data
-  2. Regenerate All the HTML 
+#### **जावास्क्रिप्ट का मुख्य विचार:**
+1. **डेटा को सुरक्षित रखना** (Model)  
+2. **HTML को बनाना** (View)  
+3. **इसे इंटरैक्टिव बनाना** (Controller)  
 
-  = MVC ( Model - View - Controller )
+---
 
-  Model --> save and manages the Data (Data Folder)
-  View --> takes the data and display in to the page ( Generate )
-  Controller --> runs some code when we interact with the page (Event Listener)
+#### **MVC कैसे काम करता है?**
+1. डेटा को अपडेट करें।  
+2. पूरे HTML को फिर से जनरेट करें।  
 
-  = Interact With Each Other With Loop
-    Loop - 
-          1. Use the Model to Generate the View (cart --> html generate)
-          2. intaract with the view it will run the controller ('eg. query selector')
-          3. controller update the Model (update the data eg. updateDeliveryOptions(productId, deliveryOptionId) 192)
-          4 .update the Model for regenerate the view (.renderOrderSummary(); 193)
+**= MVC (Model - View - Controller)**  
 
-OOP -> Object-Oriented Programming (OOP)
+---
 
-    - Function inside of object Called Method
-    - Organize our code into objects
-    - ties to represent the real world
-    - Use PascalCase "Cart()" for things that generate objects
-    - and Class help us generate these objects
+#### **Component Details**:
+1. **Model**  
+   - डेटा को सेव और मैनेज करता है।  
+   - यह डेटा फोल्डर में रहता है।  
 
-  Class -> Class ek template hoti hai, jisme hum objects banane ke 
-           liye rules likhte hain.
-    - This is design for generating Objects (Object Generator)
-    - Use PascalCase "Cart()" for things that generate objects
+2. **View**  
+   - डेटा को लेता है और पेज पर प्रदर्शित करता है।  
+   - HTML को जनरेट करता है।  
 
-      Benefits Of Classes -> 
-          1 -> A class looks like the object that it generates
-          2 -> cleaner than using a function
-          3 -> Classes have extra features for Object-Oriented 
-                Programming
+3. **Controller**  
+   - जब हम पेज के साथ इंटरैक्ट करते हैं तो कोड चलाता है।  
+   - (जैसे, **इवेंट लिस्नर**)  
 
-                  1 -> Constructor 
-                                - (lets us run setup code after creating a
-                                 object)
-                                - ye automatinc Constructor ko run kar deta 
-                                  hai jab ham class ko banate hai to
-                                - iska yhi name rahega 
-                                - ye return nhi karega kuch bhi
-                  2 -> Private Property
-                                - it can only be accessed inside the class
-                                - #localStoreKey -> this is call private 
-                                  proeperty
-                                - Class me private property ka matlab hai wo property (variable) jo sirf class ke andar hi access ki ja sakti hai. Iska istemal tab kiya jata hai jab hume data ko bahar se direct modify ya access karne se rokna ho.
-                  3 ->  Private Method
+---
 
-          4 -> better way to generate objects in object-oriented programming
+#### **MVC में Components कैसे इंटरैक्ट करते हैं?**
+यह लूप के माध्यम से एक-दूसरे के साथ काम करते हैं:
+
+1. **Model का उपयोग View को बनाने के लिए करें।**  
+   - (जैसे, कार्ट से HTML जनरेट करना)।  
+   
+2. **View के साथ इंटरैक्ट करें, यह Controller को चलाएगा।**  
+   - (जैसे, `querySelector` का उपयोग)।  
+   
+3. **Controller, Model को अपडेट करता है।**  
+   - (उदाहरण: `updateDeliveryOptions(productId, deliveryOptionId)`)।  
+   
+4. **Model को अपडेट करें और View को फिर से जनरेट करें।**  
+   - (उदाहरण: `.renderOrderSummary();`)।  
+
+---
+
+### OOP (ऑब्जेक्ट ओरिएंटेड प्रोग्रामिंग)
+
+#### **OOP क्या है?**
+1. ऑब्जेक्ट के अंदर मौजूद फंक्शन को **मेथड** कहा जाता है।  
+2. कोड को ऑर्गनाइज़ करने के लिए ऑब्जेक्ट्स का उपयोग करें।  
+3. असली दुनिया को रिप्रेजेंट करने की कोशिश करता है।  
+4. ऑब्जेक्ट जनरेट करने वाली चीजों के लिए **PascalCase** का उपयोग करें (जैसे, `Cart()`)।  
+5. क्लास हमें ऑब्जेक्ट्स जनरेट करने में मदद करती है।  
+
+---
+
+#### **Class क्या है?**
+क्लास एक **टेम्पलेट** होती है, जिसमें हम ऑब्जेक्ट्स बनाने के लिए नियम लिखते हैं।  
+1. ऑब्जेक्ट्स बनाने के लिए डिज़ाइन की गई है।  
+2. PascalCase का उपयोग करें (जैसे, `Cart()`)।  
+
+---
+
+#### **Class के फायदे:**
+1. एक क्लास उसी ऑब्जेक्ट की तरह दिखती है जिसे यह जनरेट करती है।  
+2. फंक्शन का उपयोग करने की तुलना में अधिक साफ है।  
+3. क्लासेस में ऑब्जेक्ट ओरिएंटेड प्रोग्रामिंग के लिए अतिरिक्त सुविधाएं होती हैं।  
+
+---
+
+#### **Class की विशेषताएं:**
+
+1. **Constructor**  
+   - यह ऑब्जेक्ट बनाने के बाद सेटअप कोड चलाने की अनुमति देता है।  
+   - **Constructor** स्वतः चलता है।  
+   - इसका नाम **Constructor** ही होता है।  
+   - यह कुछ भी रिटर्न नहीं करता।  
+
+2. **Private Property**  
+   - इसे केवल क्लास के अंदर ही एक्सेस किया जा सकता है।  
+   - जैसे, `#localStoreKey` एक प्राइवेट प्रॉपर्टी है।  
+   - इसका उपयोग डेटा को बाहरी मॉडिफिकेशन से बचाने के लिए किया जाता है।  
+
+3. **Private Method**  
+   - यह फंक्शन केवल क्लास के अंदर उपयोग किया जा सकता है।  
+
+4. **Inheritance (विरासत)**  
+   - यह हमें कोड को एक क्लास से दूसरी क्लास में पुन: उपयोग करने की अनुमति देता है।  
+
+   - Inheritance (विरासत) एक ऑब्जेक्ट ओरिएंटेड प्रोग्रामिंग (OOP) की मुख्य विशेषता है, जिससे एक क्लास (child class या derived class) दूसरी क्लास (parent class या base class) की सभी प्रॉपर्टी और मेथड्स का उपयोग कर सकती है।
+
+   - When Use -> इसका मतलब है कि एक क्लास (जो "child class" होती है) दूसरी क्लास (जो "parent class" होती है) से गुण और व्यवहार प्राप्त करती है, लेकिन उसमें कुछ विशिष्ट बदलाव भी हो सकते हैं।
+   
+   - super() अपनी parent class के constructor को कॉल करता है।
+   - अगर हम constructor नहीं banate, to by default parent class ka constructor run hota hai.
+   - Polymorphism = use a method withoud knowing the class
+---
