@@ -1,11 +1,13 @@
 import { formatPrice } from "../../scripts/utils/money.js";
 
-describe("test suite : formateCurrency", () => {
-  it("convert cents into inr rupees formate", () => {
-    expect(formatPrice(2090)).toEqual("2,090");
-  });
+describe("test suite: Amazon project", () => {
+  describe("Format Price", () => {
+    it("converts Informal into formal", () => {
+      expect(formatPrice(18500)).toEqual("18,500");
+    });
 
-  it("work with 0", () => {
-    expect(formatPrice(0)).toEqual("0");
+    it("works with 0", () => {
+      expect(formatPrice(0)).toEqual("0");
+    });
   });
 });

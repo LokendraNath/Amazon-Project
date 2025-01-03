@@ -1,4 +1,4 @@
-class Cart {
+export class Cart {
   cartItems; // cart item ka list
   #localStoreKey; // data save karne ke liye (Private property)
 
