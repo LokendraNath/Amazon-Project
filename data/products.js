@@ -1,4 +1,4 @@
-import { formatPrice } from "../scripts/utils/money.js";
+import { formatCurrency } from "../scripts/utils/money.js";
 
 export function getProduct(productId) {
   let matchingProduct;
@@ -12,26 +12,26 @@ export function getProduct(productId) {
   return matchingProduct;
 }
 
-export class Product {
+class Product {
   id;
   image;
   name;
   rating;
-  price;
+  priceCents;
 
   constructor(productDetails) {
     this.id = productDetails.id;
     this.image = productDetails.image;
     this.name = productDetails.name;
     this.rating = productDetails.rating;
-    this.price = productDetails.price;
+    this.priceCents = productDetails.priceCents;
   }
 
   getStarUrl() {
     return `images/ratings/rating-${this.rating.stars * 10}.png`;
   }
   getPrice() {
-    return `₹${formatPrice(this.price)}`;
+    return `$${formatCurrency(this.priceCents)}`;
   }
 
   extraInfoHTML() {
@@ -111,6 +111,29 @@ const object3 = {
 object3.method();
 */
 
+export let products = [];
+
+export function loadProducts(func) {
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("load", () => {
+    products = JSON.parse(xhr.response).map((productDetails) => {
+      if (productDetails.type === "clothing") {
+        return new Clothing(productDetails);
+      } else if (productDetails.type === "appliances") {
+        return new Appliance(productDetails);
+      }
+      return new Product(productDetails);
+    });
+    console.log("load products");
+    func();
+  });
+
+  xhr.open("GET", "https://supersimplebackend.dev/products");
+  xhr.send();
+}
+
+/*
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -120,7 +143,7 @@ export const products = [
       stars: 4.5,
       count: 87,
     },
-    price: 1099,
+    priceCents: 1099,
     keywords: ["socks", "sports", "apparel"],
   },
   {
@@ -131,7 +154,7 @@ export const products = [
       stars: 4.5,
       count: 56,
     },
-    price: 799,
+    priceCents: 799,
     keywords: ["tshirts", "apparel", "mens"],
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png",
@@ -144,7 +167,7 @@ export const products = [
       stars: 5,
       count: 1197,
     },
-    price: 1899,
+    priceCents: 1899,
     keywords: ["toaster", "kitchen", "appliances"],
     type: "appliance",
     instructionsLink: "images/appliance-instructions.png",
@@ -158,7 +181,7 @@ export const products = [
       stars: 4,
       count: 37,
     },
-    price: 999,
+    priceCents: 999,
     keywords: ["plates", "kitchen", "dining"],
   },
   {
@@ -169,7 +192,7 @@ export const products = [
       stars: 4.5,
       count: 175,
     },
-    price: 1199,
+    priceCents: 1199,
     keywords: ["kitchen", "cookware"],
   },
   {
@@ -180,7 +203,7 @@ export const products = [
       stars: 4.5,
       count: 317,
     },
-    price: 1799,
+    priceCents: 1799,
     keywords: ["hoodies", "sweaters", "apparel"],
   },
   {
@@ -191,7 +214,7 @@ export const products = [
       stars: 4.5,
       count: 144,
     },
-    price: 1299,
+    priceCents: 1299,
     keywords: ["bathroom", "washroom", "restroom", "towels", "bath towels"],
   },
   {
@@ -202,7 +225,7 @@ export const products = [
       stars: 4.5,
       count: 305,
     },
-    price: 699,
+    priceCents: 699,
     keywords: ["bathroom", "cleaning"],
   },
   {
@@ -213,7 +236,7 @@ export const products = [
       stars: 4,
       count: 89,
     },
-    price: 2299,
+    priceCents: 2299,
     keywords: ["shoes", "running shoes", "footwear"],
   },
   {
@@ -224,7 +247,7 @@ export const products = [
       stars: 4.5,
       count: 235,
     },
-    price: 279,
+    priceCents: 279,
     keywords: ["robe", "swimsuit", "swimming", "bathing", "apparel"],
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png",
@@ -237,7 +260,7 @@ export const products = [
       stars: 4.5,
       count: 30,
     },
-    price: 669,
+    priceCents: 669,
     keywords: ["accessories", "shades"],
   },
   {
@@ -248,7 +271,7 @@ export const products = [
       stars: 4.5,
       count: 562,
     },
-    price: 1999,
+    priceCents: 1999,
     keywords: ["footwear", "sandals", "womens", "beach", "summer"],
   },
   {
@@ -259,7 +282,7 @@ export const products = [
       stars: 4.5,
       count: 232,
     },
-    price: 3199,
+    priceCents: 3199,
     keywords: ["bedroom", "curtains", "home"],
   },
   {
@@ -270,7 +293,7 @@ export const products = [
       stars: 4,
       count: 160,
     },
-    price: 1699,
+    priceCents: 1699,
     keywords: ["shorts", "apparel", "mens"],
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png",
@@ -283,7 +306,7 @@ export const products = [
       stars: 5,
       count: 846,
     },
-    price: 1299,
+    priceCents: 1299,
     keywords: ["water boiler", "appliances", "kitchen"],
     instructionsLink: "images/appliance-instructions.png",
     warrantyLink: "images/appliance-warranty.png",
@@ -296,7 +319,7 @@ export const products = [
       stars: 4,
       count: 99,
     },
-    price: 899,
+    priceCents: 899,
     keywords: ["kleenex", "tissues", "kitchen", "tissues box", "napkins"],
   },
   {
@@ -307,7 +330,7 @@ export const products = [
       stars: 4,
       count: 215,
     },
-    price: 599,
+    priceCents: 599,
     keywords: ["hats", "straw hats", "summer", "apparel"],
   },
   {
@@ -318,7 +341,7 @@ export const products = [
       stars: 4.5,
       count: 52,
     },
-    price: 499,
+    priceCents: 499,
     keywords: ["jewelry", "accessories", "womens"],
   },
 ].map((productDetails) => {
@@ -329,3 +352,4 @@ export const products = [
   }
   return new Product(productDetails);
 });
+*/

@@ -95,3 +95,8 @@ export function updateDeliveryOptions(productId, deliveryOptionsId) {
   matchingItem.deliveryOptionsId = deliveryOptionsId;
   saveToStorage();
 }
+
+export function updateCartQty() {
+  const cartQty = calculateCartQty();
+  document.querySelector(".js-cart-quantity").innerHTML = cartQty;
+}

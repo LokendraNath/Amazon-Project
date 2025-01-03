@@ -7,7 +7,7 @@ import {
   updateDeliveryOptions,
 } from "../../data/cart.js";
 import { products, getProduct } from "../../data/products.js";
-import { formatPrice } from "../utils/money.js";
+import { formatCurrency } from "../utils/money.js";
 import {
   deliveryOptions,
   getDeliveryOption,
@@ -87,7 +87,7 @@ export function renderOrderSummary() {
       const dateString = calculateDeliveryDate(deliveryOption);
 
       const priceString =
-        deliveryOption.price === 0 ? "FREE" : deliveryOption.price;
+        deliveryOption.priceCents === 0 ? "FREE" : deliveryOption.priceCents / 100;
 
       const isChecked = deliveryOption.id === cartItem.deliveryOptionsId;
 
@@ -103,7 +103,7 @@ export function renderOrderSummary() {
         />
         <div>
           <div class="delivery-option-date">${dateString}</div>
-          <div class="delivery-option-price">₹${priceString} - Shipping</div>
+          <div class="delivery-option-price">$${priceString} - Shipping</div>
         </div>
       </div>
       `;
