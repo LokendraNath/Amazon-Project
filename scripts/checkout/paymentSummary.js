@@ -1,6 +1,9 @@
 import { cart, calculateCartQty } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
-import { getDeliveryOption } from "../../data/deliveryOption.js";
+import {
+  deliveryOptions,
+  getDeliveryOption,
+} from "../../data/deliveryOption.js";
 import { formatCurrency } from "../utils/money.js";
 
 export function renderPaymentSummary() {
@@ -12,7 +15,7 @@ export function renderPaymentSummary() {
     const product = getProduct(cartItem.productId);
     productPrice += product.priceCents * cartItem.quantity;
 
-    const deliveryOption = getDeliveryOption(cartItem.deliveryOptionsId);
+    const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
 
     shippingPrice += deliveryOption.priceCents;
   });
