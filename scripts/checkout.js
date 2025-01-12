@@ -6,6 +6,23 @@ import { renderOrderSummary } from "./checkout/orderSummary.js";
 
 // import '../data/backend-practice.js'
 
+async function loadPage() {
+  await loadProductsFetch();
+
+  const value = await new Promise((res) => {
+    loadCart(() => {
+      res("value3");
+    });
+  })
+
+  renderOrderSummary();
+  renderCheckoutHeader();
+  renderPaymentSummary();
+}
+
+loadPage();
+
+/*
 Promise.all([
   loadProductsFetch(),
   new Promise((res) => {
@@ -19,6 +36,7 @@ Promise.all([
   renderCheckoutHeader();
   renderPaymentSummary();
 });
+*/
 
 /*
 new Promise((res) => {
