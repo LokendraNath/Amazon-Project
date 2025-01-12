@@ -1,8 +1,13 @@
-import { cart, addToCart, calculateCartQty,updateCartQty } from "../data/cart.js";
+import {
+  cart,
+  addToCart,
+  calculateCartQty,
+  updateCartQty,
+} from "../data/cart.js";
 import { products, loadProducts } from "../data/products.js";
 
 loadProducts(renderProductGrid);
-updateCartQty()
+updateCartQty();
 
 function renderProductGrid() {
   let productHTML = "";
@@ -66,8 +71,6 @@ function renderProductGrid() {
 
   // Add In productHTML
   document.querySelector(".js-products-grid").innerHTML = productHTML;
-
-  
 
   const addMessageTimeouts = {};
 
